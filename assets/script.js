@@ -8,42 +8,71 @@ let vacanciesWithSkills = [];
 let vacanciesEmpty = [];
 let skillsData = [];
 
-// Load data files
+function parsePythonArray(str) {
+    if (!str || str === '[]') return [];
+    if (Array.isArray(str)) return str;
+    
+    try {
+        // Convert Python-style quotes to JSON-standard
+        const jsonCompatible = str
+            .replace(/'/g, '"')  // Replace single quotes with double quotes
+            .replace(/^\[|\]$/g, '');  // Remove brackets
+        
+        // Parse as JSON array
+        return JSON.parse(`[${jsonCompatible}]`);
+    } catch (e) {
+        console.warn(`Failed to parse skills string: "${str}"`, e);
+        return [];
+    }
+}
+
 Promise.all([
     loadCSV('data/vacancies_with_skills_merged.csv'),
     loadCSV('data/vacancies_empty_merged.csv'),
     loadJSON('data/skills_data_merged.json')
 ]).then(([withSkills, empty, skills]) => {
-    vacanciesWithSkills = withSkills;
+    // Process skills in vacancies data
+    vacanciesWithSkills = withSkills.map(v => ({
+        ...v,
+        skills: parsePythonArray(v.skills)
+    }));
+    
     vacanciesEmpty = empty;
     skillsData = skills;
     
-    // Update status bar
+    console.log("First vacancy skills sample:", vacanciesWithSkills[0].skills);
+    
     document.getElementById('totalCount').textContent = 
         vacanciesWithSkills.length + vacanciesEmpty.length;
     
-    // Create visualizations
     createAvailabilityChart();
     createTopSkillsChart();
     createSkillHeatmap();
     createSkillNetwork();
     
-    // Fake CPU usage animation
     animateCPUUsage();
+}).catch(error => {
+    console.error("Error loading data:", error);
+    alert("Error loading data. Check console for details.");
 });
 
 function loadCSV(url) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         Papa.parse(url, {
             download: true,
             header: true,
-            complete: (results) => resolve(results.data)
+            complete: (results) => resolve(results.data),
+            error: (error) => reject(error)
         });
     });
 }
 
 function loadJSON(url) {
-    return fetch(url).then(response => response.json());
+    return fetch(url)
+        .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return response.json();
+        });
 }
 
 // Chart 1: Availability Pie Chart
