@@ -1,0 +1,49 @@
+:root {
+    --vapor-pink: #ff71ce;
+    --vapor-blue: #01cdfe;
+    --vapor-purple: #9678ff;
+    --vapor-green: #00feca;
+    --vapor-yellow: #fffb96;
+    --vapor-bg-dark: #171738;
+    --vapor-bg-light: #2e2b62;
+    --vapor-text: #ffffff;
+    --vapor-grid: #ff71ce;
+}
+
+.vaporwave-bg {
+    background: linear-gradient(
+        135deg,
+        var(--vapor-bg-dark),
+        var(--vapor-bg-light)
+    );
+    background-attachment: fixed;
+    color: var(--vapor-text);
+    font-family: 'Courier New', monospace;
+}
+
+.vaporwave-title {
+    color: var(--vapor-pink);
+    text-align: center;
+    text-shadow: 0 0 10px var(--vapor-blue);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    background: rgba(23, 23, 56, 0.7) !important;
+    border: 1px solid var(--vapor-pink) !important;
+    box-shadow: 0 0 15px var(--vapor-purple);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}

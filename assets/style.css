@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+#heatmapContainer, #networkContainer {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Vaporwave scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--vapor-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--vapor-pink);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--vapor-blue);
+}
+
+/* Windows 95 button styles */
+button.win95 {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #dfdfdf #808080 #808080 #dfdfdf;
+    padding: 3px 12px;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 12px;
+    margin: 2px;
+}
+
+button.win95:active {
+    border-color: #808080 #dfdfdf #dfdfdf #808080;
+}
+
+button.win95.vapor {
+    background: var(--vapor-purple);
+    color: white;
+    border-color: var(--vapor-pink) var(--vapor-blue) var(--vapor-blue) var(--vapor-pink);
+}
+
+button.win95.vapor:active {
+    border-color: var(--vapor-blue) var(--vapor-pink) var(--vapor-pink) var(--vapor-blue);
+}

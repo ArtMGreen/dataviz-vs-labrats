@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Job Analysis</title>
+    <link rel="stylesheet" href="assets/win95.css">
+    <link rel="stylesheet" href="assets/vaporwave.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+</head>
+<body class="vaporwave-bg">
+    <div class="window win95-style" style="width: 90%; margin: 20px auto;">
+        <div class="title-bar">
+            <div class="title-bar-text">Russian Job Market Analysis.exe</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <h1 class="vaporwave-title">🌴 Russian Lab Job Market 🌴</h1>
+            
+            <div class="grid-container">
+                <!-- Chart 1: Skills vs Empty -->
+                <div class="window win95-style chart-container">
+                    <div class="title-bar">
+                        <div class="title-bar-text">Skills Availability</div>
+                    </div>
+                    <div class="window-body">
+                        <canvas id="availabilityChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Chart 2: Top Skills -->
+                <div class="window win95-style chart-container">
+                    <div class="title-bar">
+                        <div class="title-bar-text">Top Skills</div>
+                    </div>
+                    <div class="window-body">
+                        <canvas id="topSkillsChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Chart 3A: Skill Heatmap -->
+                <div class="window win95-style chart-container">
+                    <div class="title-bar">
+                        <div class="title-bar-text">Skill Correlations</div>
+                    </div>
+                    <div class="window-body">
+                        <div id="heatmapContainer"></div>
+                    </div>
+                </div>
+                
+                <!-- Chart 3B: Skill Network -->
+                <div class="window win95-style chart-container">
+                    <div class="title-bar">
+                        <div class="title-bar-text">Skill Relationships</div>
+                    </div>
+                    <div class="window-body">
+                        <div id="networkContainer"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="status-bar">
+                <p class="status-bar-field">Total vacancies processed: <span id="totalCount">0</span></p>
+                <p class="status-bar-field">Press F11 for fullscreen</p>
+                <p class="status-bar-field">Vibe attained: <span id="cpuUsage">▰▰▰▱▱ 42%</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

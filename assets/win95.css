@@ -1,0 +1,65 @@
+.win95-style {
+    font-family: 'MS Sans Serif', 'Segoe UI', sans-serif;
+    border: 2px solid;
+    border-color: #dfdfdf #808080 #808080 #dfdfdf;
+    background: #c0c0c0;
+    padding: 0;
+    margin: 0;
+    box-shadow: 1px 1px 0px #000;
+}
+
+.title-bar {
+    background: linear-gradient(90deg, #000080, #1084d0);
+    color: white;
+    padding: 3px 2px 3px 3px;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-bar-text {
+    padding-left: 3px;
+}
+
+.title-bar-controls {
+    display: flex;
+}
+
+.title-bar-controls button {
+    width: 22px;
+    height: 20px;
+    margin-left: 2px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #dfdfdf #808080 #808080 #dfdfdf;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.title-bar-controls button:active {
+    border-color: #808080 #dfdfdf #dfdfdf #808080;
+}
+
+.window-body {
+    padding: 8px;
+    color: black;
+}
+
+.status-bar {
+    background: #c0c0c0;
+    border-top: 2px solid #808080;
+    padding: 2px 4px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.status-bar-field {
+    margin: 0;
+}
