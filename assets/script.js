@@ -214,26 +214,26 @@ function createSkillHeatmap() {
             });
         
         // Add labels
-        topSkills.forEach((skill, i) => {
-            svg.append('text')
-                .attr('x', i * cellSize + cellSize / 2)
-                .attr('y', height - 5)
-                .attr('text-anchor', 'middle')
-                .attr('font-family', 'Courier New')
-                .attr('font-size', '10px')
-                .attr('fill', 'white')
-                .text(skill.length > 10 ? skill.substring(0, 8) + '...' : skill)
-                .attr('transform', `rotate(-45, ${i * cellSize + cellSize / 2}, ${height - 5})`);
-            
-            svg.append('text')
-                .attr('x', 5)
-                .attr('y', i * cellSize + cellSize / 2 + 5)
-                .attr('text-anchor', 'start')
-                .attr('font-family', 'Courier New')
-                .attr('font-size', '10px')
-                .attr('fill', 'white')
-                .text(skill.length > 10 ? skill.substring(0, 8) + '...' : skill);
-        });
+        // topSkills.forEach((skill, i) => {
+        //     svg.append('text')
+        //         .attr('x', i * cellSize + cellSize / 2)
+        //         .attr('y', height - 5)
+        //         .attr('text-anchor', 'middle')
+        //         .attr('font-family', 'Courier New')
+        //         .attr('font-size', '10px')
+        //         .attr('fill', 'white')
+        //         .text(skill.length > 10 ? skill.substring(0, 8) + '...' : skill)
+        //         .attr('transform', `rotate(-45, ${i * cellSize + cellSize / 2}, ${height - 5})`);
+        //     
+        //     svg.append('text')
+        //         .attr('x', 5)
+        //         .attr('y', i * cellSize + cellSize / 2 + 5)
+        //         .attr('text-anchor', 'start')
+        //         .attr('font-family', 'Courier New')
+        //         .attr('font-size', '10px')
+        //         .attr('fill', 'white')
+        //         .text(skill.length > 10 ? skill.substring(0, 8) + '...' : skill);
+        // });
         
     } catch (e) {
         console.error("Heatmap error:", e);
